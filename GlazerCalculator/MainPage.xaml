@@ -8,7 +8,33 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid RenderTransformOrigin="0.466,0.48">
+        <TextBlock x:Name="txtblckWidth" HorizontalAlignment="Left" Margin="65,61,0,0" Text="Width:" TextWrapping="Wrap" VerticalAlignment="Top" FocusVisualPrimaryBrush="#FF020202" Foreground="Black" FocusVisualSecondaryBrush="#99FFFFFF" RequestedTheme="Default" RenderTransformOrigin="0.5,0.5" Height="48" UseLayoutRounding="False" Width="98" d:LayoutRounding="Auto" FontSize="25">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="-0.239"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="384,61,0,0" Text="Height:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="25"/>
+        <TextBlock HorizontalAlignment="Left" Margin="695,61,0,0" Text="Tint Color:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="25" Height="47" Width="130"/>
+        <ComboBox x:Name="tintDropDown" HorizontalAlignment="Left" Margin="847,61,0,0" VerticalAlignment="Top" Height="49" Width="116" FontSize="23" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem Background="#FF3C4CEE" Content="Blue" Foreground="#FFFBF1F1" FontSize="20"/>
+            <ComboBoxItem Background="#FF964B00" Content="Brown" Foreground="#FFF7F7F7" FontSize="20"/>
+            <ComboBoxItem Background="Black" Content="Black" Foreground="#FFF7F7F7"/>
+        </ComboBox>
+        <TextBlock x:Name="txtQuantity" HorizontalAlignment="Left" Margin="65,233,0,0" Text="Quantity:" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="117" FontSize="25"/>
+        <Button x:Name="butCalculate" Content="Calculate" HorizontalAlignment="Left" Margin="695,205,0,0" VerticalAlignment="Top" Height="61" Width="155" FontSize="26" Click="ButCalculate_Click"/>
+        <TextBlock x:Name="widthWarning" HorizontalAlignment="Left" Margin="65,147,0,0" Text="" VerticalAlignment="Top" Height="48" Width="166"/>
+        <TextBlock x:Name="heightWarning" HorizontalAlignment="Left" Margin="384,147,0,0" Text="" VerticalAlignment="Top" Width="180" Height="48"/>
+        <TextBlock x:Name="quantityNum" HorizontalAlignment="Left" Margin="464,232,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="78" FontSize="25"/>
+        <TextBlock x:Name="tintLabel" HorizontalAlignment="Left" Margin="773,147,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="154"/>
+        <TextBlock x:Name="output" HorizontalAlignment="Left" Margin="139,392,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="178" Width="730"/>
+        <TextBox x:Name="txtboxWidthInput" HorizontalAlignment="Left" Margin="161,61,0,0" Text="" VerticalAlignment="Top" Width="137" Height="49" KeyUp="TxtboxWidthInput_KeyUp"/>
+        <TextBox x:Name="txtboxHeightInput" HorizontalAlignment="Left" Margin="512,57,0,0" Text="" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="64" UseLayoutRounding="False" Width="132" d:LayoutRounding="Auto" KeyUp="TxtboxHeightInput_KeyUp">
+            <TextBox.RenderTransform>
+                <CompositeTransform Rotation="0.346"/>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Slider x:Name="sliderQuantity" HorizontalAlignment="Left" Margin="201,236,0,0" VerticalAlignment="Top" Width="258"/>
 
     </Grid>
 </Page>
