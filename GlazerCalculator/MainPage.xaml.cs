@@ -26,23 +26,39 @@ namespace GlazerCalculator
         {
             this.InitializeComponent();
 
-        }
+           /* Slider volumeSlider = new Slider();
+            volumeSlider.Header = "Volume";
+            volumeSlider.Width = 200;
+            volumeSlider.ValueChanged += volumeSlider_ValueChanged; */
 
+        }
+        private void sliderQuantity_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            var sliderQuantity = sender as Slider;
+
+            var quantity = sliderQuantity.Value;
+
+            sldValue.Text = quantity.ToString();
+
+        }
         private void ButCalculate_Click(object sender, RoutedEventArgs e)
         {
 
             double width, height, woodLength, glassArea;
-            width = double.Parse(txtboxWidthInput.Text);
-            height = double.Parse(txtboxHeightInput.Text);
+            string widthString, heightString;
+
+            widthString = txtboxWidthInput.Text;
+            width = double.Parse(widthString);
+
+            heightString = txtboxHeightInput.Text;
+            height = double.Parse(heightString);
+
             woodLength = 2 * (width + height) * 3.25;
-            glassArea = 2 * (width * height) * 3.25;
-            double quant = double.Parse(quantityNum.Text);
-            string tint = ((ComboBoxItem)tintDropDown.SelectedItem).Content.ToString(); ;
-            output.Text = $"Quantity: {quant}\n" +
-                $"Tint: {tint}\n" +
-                $"Length: {woodLength}\n" +
-                $"Area: {glassArea}";
-            //txtDate.Text = DateTime.Now.ToString();
+            glassArea = 2 * (width * height);
+
+            woodLengthOutput.Text = woodLength + " Feet";
+            glassAreaOutput.Text = glassArea + " Square meters";
+            DateOutput.Text = DateTime.Now.ToString("dddd, dd, MMMM, yyyy");
 
         }
 
@@ -51,14 +67,11 @@ namespace GlazerCalculator
             string widthString = txtboxWidthInput.Text;
             if (!int.TryParse(widthString, out int width))
             {
-                txtboxWidthInput.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Red);
-                txtboxWidthInput.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
-                widthWarning.Text = "Width must be a number.";
+                widthNum.Text = "Width must be a number.";
             }
             else
             {
-                txtboxWidthInput.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Gray);
-                widthWarning.Text = "";
+                widthNum.Text = "";
             }
         }
 
@@ -67,27 +80,22 @@ namespace GlazerCalculator
             string heightString = txtboxHeightInput.Text;
             if (!int.TryParse(heightString, out int width))
             {
-                txtboxHeightInput.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Red);
-                txtboxHeightInput.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
-                heightWarning.Text = "Height must be a number.";
+                heightNum.Text = "Height must be a number.";
             }
             else
             {
-                txtboxHeightInput.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Gray);
-                heightWarning.Text = "";
+                heightNum.Text = "";
             }
         }
 
-            private void SliderQuantity_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
-        {
-            quantityNum.Text = sliderQuantity.Value.ToString();
-
-        }
+            
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+
+       
     }
 
 }
